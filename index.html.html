@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muzafar Hussain — SEO Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0A0F1E;
+  --paper:#F7F5F0;
+  --cream:#EDEAE3;
+  --gold:#C9A84C;
+  --gold-light:#E8D49A;
+  --teal:#0D7377;
+  --teal-light:#14A085;
+  --rust:#C0392B;
+  --muted:#6B7280;
+  --border:#D4CFC6;
+  --white:#FFFFFF;
+  --card:#FDFCFA;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden}
+
+/* ── CURSOR ── */
+.cursor{width:10px;height:10px;background:var(--gold);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transition:transform 0.15s,width 0.2s,height 0.2s;transform:translate(-50%,-50%)}
+.cursor-ring{width:36px;height:36px;border:1.5px solid var(--gold);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transition:transform 0.08s,opacity 0.3s;transform:translate(-50%,-50%);opacity:0.5}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 72px;background:rgba(247,245,240,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--ink);letter-spacing:-0.5px}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:36px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.3px;transition:color 0.2s;text-transform:uppercase}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:var(--paper);padding:10px 26px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.5px;transition:all 0.2s;text-transform:uppercase}
+.nav-cta:hover{background:var(--gold);color:var(--ink)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:120px 72px 80px;gap:80px;position:relative;overflow:hidden}
+.hero-bg-text{position:absolute;font-family:'Playfair Display',serif;font-size:280px;font-weight:900;color:rgba(201,168,76,0.04);top:50%;left:-20px;transform:translateY(-50%);white-space:nowrap;pointer-events:none;line-height:1;letter-spacing:-10px}
+.hero-left{position:relative;z-index:2}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:28px}
+.hero-tag::before{content:'';width:40px;height:1px;background:var(--gold)}
+h1{font-family:'Playfair Display',serif;font-size:clamp(52px,5.5vw,80px);font-weight:900;line-height:1.0;letter-spacing:-2px;color:var(--ink);margin-bottom:10px}
+h1 em{font-style:italic;color:var(--teal)}
+.hero-sub{font-size:20px;font-weight:300;color:var(--muted);margin-bottom:36px;line-height:1.5}
+.hero-desc{font-size:15px;line-height:1.9;color:var(--muted);max-width:440px;margin-bottom:48px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn-solid{background:var(--ink);color:var(--paper);padding:15px 36px;font-size:14px;font-weight:600;text-decoration:none;letter-spacing:0.5px;text-transform:uppercase;transition:all 0.2s;display:inline-block}
+.btn-solid:hover{background:var(--teal)}
+.btn-line{border:1.5px solid var(--ink);color:var(--ink);padding:14px 36px;font-size:14px;font-weight:500;text-decoration:none;letter-spacing:0.3px;transition:all 0.2s;display:inline-block}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.hero-right{position:relative;z-index:2}
+.hero-card-stack{position:relative;height:520px}
+.hc{position:absolute;background:var(--card);border:1px solid var(--border);padding:32px}
+.hc-main{width:320px;top:0;right:0;box-shadow:0 20px 60px rgba(0,0,0,0.08)}
+.hc-accent{width:240px;bottom:0;left:0;background:var(--ink);border-color:var(--ink)}
+.hc-mid{width:200px;top:50%;right:60px;transform:translateY(-50%);background:var(--teal);border-color:var(--teal)}
+.hc-main-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+.hc-main-name{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.hc-main-role{font-size:14px;color:var(--teal);margin-bottom:24px}
+.hc-stat-row{display:flex;gap:20px}
+.hc-stat-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:var(--gold);display:block;line-height:1}
+.hc-stat-lbl{font-size:11px;color:var(--muted);margin-top:3px;display:block}
+.hc-accent-num{font-family:'Playfair Display',serif;font-size:54px;font-weight:900;color:var(--gold);line-height:1;display:block}
+.hc-accent-lbl{font-size:12px;color:rgba(247,245,240,0.6);margin-top:6px;letter-spacing:1px;text-transform:uppercase}
+.hc-mid-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:900;color:var(--white);line-height:1;display:block}
+.hc-mid-lbl{font-size:12px;color:rgba(255,255,255,0.7);margin-top:6px}
+
+/* ── TICKER ── */
+.ticker{background:var(--ink);padding:14px 0;overflow:hidden;white-space:nowrap}
+.ticker-inner{display:inline-flex;gap:0;animation:ticker 20s linear infinite}
+.ticker-item{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);padding:0 40px;display:inline-flex;align-items:center;gap:16px}
+.ticker-item::after{content:'✦';color:var(--gold);font-size:8px}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── SECTIONS ── */
+section{padding:100px 72px}
+.sec-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.sec-eyebrow::before{content:'';width:30px;height:1px;background:var(--gold)}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(36px,4vw,56px);font-weight:900;color:var(--ink);line-height:1.05;letter-spacing:-1.5px;margin-bottom:16px}
+.sec-sub{font-size:16px;color:var(--muted);line-height:1.8;max-width:480px}
+.sec-head{margin-bottom:60px}
+.alt{background:var(--cream)}
+
+/* ── SERVICES ── */
+.svc-layout{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
+.svc-sticky{position:sticky;top:120px}
+.svc-list{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.svc-item{background:var(--card);padding:36px 40px;cursor:default;transition:all 0.3s;border-left:3px solid transparent;position:relative}
+.svc-item:hover{border-left-color:var(--gold);background:var(--white)}
+.svc-item:hover .svc-arrow{opacity:1;transform:translateX(4px)}
+.svc-num{font-family:'Playfair Display',serif;font-size:13px;color:var(--gold);font-weight:700;margin-bottom:10px}
+.svc-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.svc-desc{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.svc-tags{display:flex;flex-wrap:wrap;gap:6px}
+.svc-tag{font-size:11px;border:1px solid var(--border);color:var(--muted);padding:4px 10px}
+.svc-arrow{position:absolute;right:32px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--gold);opacity:0;transition:all 0.3s}
+
+/* ── RESULTS ── */
+.results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-bottom:1px}
+.res-card{background:var(--card);padding:48px 36px;text-align:center;transition:background 0.3s}
+.res-card:hover{background:var(--ink)}
+.res-card:hover .res-num{color:var(--gold)}
+.res-card:hover .res-label,.res-card:hover .res-sub{color:rgba(247,245,240,0.5)}
+.res-num{font-family:'Playfair Display',serif;font-size:60px;font-weight:900;color:var(--teal);line-height:1;margin-bottom:10px;display:block;transition:color 0.3s}
+.res-label{font-size:14px;color:var(--ink);font-weight:500;margin-bottom:6px;display:block;transition:color 0.3s}
+.res-sub{font-size:12px;color:var(--muted);display:block;transition:color 0.3s}
+
+/* ── CASE STUDIES ── */
+.cases{display:grid;gap:2px;background:var(--border)}
+.case{background:var(--card);padding:56px 60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;transition:background 0.3s}
+.case:hover{background:var(--white)}
+.case.dark{background:var(--ink)}
+.case.dark:hover{background:#0f1628}
+.case-left{}
+.case-tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.case-tag-dark{color:var(--gold-light)}
+.case-title{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--ink);line-height:1.15;margin-bottom:16px}
+.case-title-dark{color:var(--paper)}
+.case-challenge{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:28px}
+.case-challenge-dark{color:rgba(247,245,240,0.55)}
+.case-approach-title{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:600}
+.case-approach-title-dark{color:rgba(247,245,240,0.4)}
+.case-steps{list-style:none;display:flex;flex-direction:column;gap:10px}
+.case-step{font-size:14px;color:var(--muted);padding-left:20px;position:relative;line-height:1.6}
+.case-step::before{content:'→';position:absolute;left:0;color:var(--gold);font-size:12px}
+.case-step-dark{color:rgba(247,245,240,0.6)}
+.case-right{}
+.case-metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);margin-bottom:28px}
+.cm{background:var(--paper);padding:28px 24px;text-align:center}
+.cm-dark{background:rgba(255,255,255,0.04)}
+.cm-val{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:var(--teal);line-height:1;display:block;margin-bottom:6px}
+.cm-val-green{color:#10B981}
+.cm-key{font-size:12px;color:var(--muted);letter-spacing:0.5px;display:block}
+.cm-key-dark{color:rgba(247,245,240,0.4)}
+.case-tools-wrap{border-top:1px solid var(--border);padding-top:20px}
+.case-tools-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:600}
+.case-tools{display:flex;flex-wrap:wrap;gap:6px}
+.ctool{font-size:11px;background:rgba(13,115,119,0.08);border:1px solid rgba(13,115,119,0.2);color:var(--teal);padding:5px 12px}
+.ctool-dark{background:rgba(201,168,76,0.1);border-color:rgba(201,168,76,0.3);color:var(--gold-light)}
+.case-tools-wrap-dark{border-color:rgba(255,255,255,0.1)}
+
+/* ── KEYWORD RANK TABLE ── */
+.rank-section{background:var(--ink);padding:80px 72px}
+.rank-title{font-family:'Playfair Display',serif;font-size:42px;font-weight:900;color:var(--paper);margin-bottom:8px;letter-spacing:-1px}
+.rank-sub{font-size:15px;color:rgba(247,245,240,0.45);margin-bottom:48px}
+.rank-table{width:100%;border-collapse:collapse}
+.rank-table thead tr{border-bottom:1px solid rgba(255,255,255,0.08)}
+.rank-table th{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(247,245,240,0.35);font-weight:500;padding:0 20px 16px;text-align:left}
+.rank-table th:last-child{text-align:right}
+.rank-table tbody tr{border-bottom:1px solid rgba(255,255,255,0.04);transition:background 0.2s}
+.rank-table tbody tr:hover{background:rgba(255,255,255,0.03)}
+.rank-table td{padding:18px 20px;font-size:14px;color:rgba(247,245,240,0.7)}
+.rank-kw{color:var(--paper);font-weight:500}
+.rank-niche{font-size:12px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);color:var(--gold-light);padding:3px 10px;display:inline-block}
+.rank-before{color:rgba(247,245,240,0.35);text-decoration:line-through}
+.rank-after{color:#10B981;font-weight:700;font-size:16px}
+.rank-change{color:#10B981;font-size:13px;font-weight:600}
+.rank-time{color:rgba(247,245,240,0.4);font-size:13px;text-align:right}
+
+/* ── PROCESS ── */
+.process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:60px;position:relative}
+.process-grid::before{content:'';position:absolute;top:40px;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--border),var(--border),transparent)}
+.proc{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 20px;position:relative;z-index:1}
+.proc-circle{width:80px;height:80px;border:1.5px solid var(--border);background:var(--card);display:flex;align-items:center;justify-content:center;margin-bottom:20px;position:relative;transition:all 0.3s}
+.proc:hover .proc-circle{background:var(--ink);border-color:var(--ink)}
+.proc:hover .proc-n{color:var(--gold)}
+.proc-n{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--teal);transition:color 0.3s}
+.proc-name{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.proc-desc{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* ── TOOLS ── */
+.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);margin-top:60px}
+.tool-card{background:var(--card);padding:36px;transition:all 0.3s;position:relative;overflow:hidden}
+.tool-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--gold);transform:scaleY(0);transition:transform 0.3s;transform-origin:bottom}
+.tool-card:hover::before{transform:scaleY(1)}
+.tool-card:hover{background:var(--white)}
+.tool-emoji{font-size:28px;margin-bottom:16px;display:block}
+.tool-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.tool-use{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px}
+.tool-bar-wrap{height:4px;background:var(--border);position:relative}
+.tool-bar-fill{position:absolute;top:0;left:0;bottom:0;background:linear-gradient(90deg,var(--teal),var(--gold))}
+.tool-pct{font-size:11px;color:var(--teal);font-weight:600;margin-top:6px}
+
+/* ── TESTIMONIALS ── */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);margin-top:60px}
+.testi-card{background:var(--card);padding:40px;transition:all 0.3s}
+.testi-card:hover{background:var(--ink)}
+.testi-card:hover .tq,.testi-card:hover .tname{color:var(--paper)}
+.testi-card:hover .trole,.testi-card:hover .ttext{color:rgba(247,245,240,0.5)}
+.tq{font-family:'Playfair Display',serif;font-size:64px;font-weight:900;color:var(--gold);line-height:0.5;margin-bottom:20px;display:block;transition:color 0.3s}
+.ttext{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:28px;font-style:italic;transition:color 0.3s}
+.tperson{display:flex;align-items:center;gap:14px}
+.tavatar{width:44px;height:44px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--white);flex-shrink:0}
+.tname{font-size:14px;font-weight:600;color:var(--ink);transition:color 0.3s}
+.trole{font-size:12px;color:var(--muted);transition:color 0.3s}
+
+/* ── CONTACT ── */
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:60px;align-items:start}
+.contact-left h3{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--ink);margin-bottom:16px;line-height:1.1}
+.contact-left p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:40px}
+.c-item{display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid var(--border)}
+.c-icon{width:44px;height:44px;background:var(--ink);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.c-lbl{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+.c-val{font-size:14px;color:var(--ink);font-weight:500}
+.avail-badge{display:inline-flex;align-items:center;gap:10px;border:1.5px solid var(--teal);color:var(--teal);padding:12px 20px;font-size:13px;font-weight:600;margin-top:28px;letter-spacing:0.5px;text-transform:uppercase}
+.avail-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.cform{background:var(--cream);padding:48px}
+.fg{margin-bottom:22px}
+.flbl{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:block;font-weight:600}
+.fi{width:100%;background:var(--white);border:1px solid var(--border);padding:13px 16px;font-size:14px;color:var(--ink);font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.2s}
+.fi:focus{border-color:var(--teal)}
+textarea.fi{resize:vertical;min-height:120px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fsub{width:100%;background:var(--ink);color:var(--paper);border:none;padding:16px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:1px;text-transform:uppercase;transition:background 0.2s;margin-top:8px}
+.fsub:hover{background:var(--teal)}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);padding:48px 72px;display:flex;align-items:center;justify-content:space-between}
+.flogo{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--paper)}
+.flogo span{color:var(--gold)}
+.fcopy{font-size:13px;color:rgba(247,245,240,0.3)}
+.flinks{display:flex;gap:28px}
+.flinks a{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:rgba(247,245,240,0.4);text-decoration:none;transition:color 0.2s}
+.flinks a:hover{color:var(--gold)}
+
+/* ── ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  nav{padding:16px 24px}
+  .nav-links,.nav-cta{display:none}
+  .hero{grid-template-columns:1fr;padding:100px 24px 60px}
+  .hero-right{display:none}
+  section{padding:60px 24px}
+  .svc-layout{grid-template-columns:1fr}
+  .results-grid,.case,.testi-grid,.tools-grid,.contact-layout{grid-template-columns:1fr}
+  .case{grid-template-columns:1fr;padding:36px 24px}
+  .rank-section{padding:60px 24px}
+  .process-grid{grid-template-columns:1fr 1fr}
+  footer{flex-direction:column;gap:20px;padding:36px 24px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curRing"></div>
+
+<nav>
+  <div class="logo">MH<span>.</span></div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#results">Results</a>
+    <a href="#cases">Work</a>
+    <a href="#rankings">Rankings</a>
+    <a href="#contact">Hire Me</a>
+  </div>
+  <a href="#contact" class="nav-cta">Let's Talk</a>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg-text">SEO</div>
+  <div class="hero-left">
+    <div class="hero-tag">SEO Specialist · Islamabad, Pakistan</div>
+    <h1>Ranking<br><em>Websites.</em><br>Growing<br>Businesses.</h1>
+    <p class="hero-sub">2+ Years · Technical &amp; On-Page &amp; Off-Page</p>
+    <p class="hero-desc">I turn underperforming websites into organic traffic machines — through data-driven SEO strategies that deliver real, measurable rankings growth.</p>
+    <div class="hero-actions">
+      <a href="#cases" class="btn-solid">See My Work</a>
+      <a href="mailto:hafizmuzafar247@gmail.com" class="btn-line">Hire Me</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card-stack">
+      <div class="hc hc-main">
+        <div class="hc-main-label">SEO Specialist Profile</div>
+        <div class="hc-main-name">Muzafar Hussain</div>
+        <div class="hc-main-role">Technical · On-Page · Off-Page</div>
+        <div class="hc-stat-row">
+          <div><span class="hc-stat-num">2+</span><span class="hc-stat-lbl">Years Exp.</span></div>
+          <div><span class="hc-stat-num">9+</span><span class="hc-stat-lbl">SEO Tools</span></div>
+          <div><span class="hc-stat-num">100%</span><span class="hc-stat-lbl">White-Hat</span></div>
+        </div>
+      </div>
+      <div class="hc hc-accent">
+        <span class="hc-accent-num">↑68%</span>
+        <span class="hc-accent-lbl">Avg. Traffic Increase</span>
+      </div>
+      <div class="hc hc-mid">
+        <span class="hc-mid-num">#1–5</span>
+        <span class="hc-mid-lbl">Keywords Ranked</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">Technical SEO</span>
+    <span class="ticker-item">Core Web Vitals</span>
+    <span class="ticker-item">E-E-A-T Strategy</span>
+    <span class="ticker-item">Schema Markup</span>
+    <span class="ticker-item">Link Building</span>
+    <span class="ticker-item">SurferSEO</span>
+    <span class="ticker-item">Screaming Frog</span>
+    <span class="ticker-item">SEMrush</span>
+    <span class="ticker-item">Google Search Console</span>
+    <span class="ticker-item">Topical Authority</span>
+    <span class="ticker-item">Technical SEO</span>
+    <span class="ticker-item">Core Web Vitals</span>
+    <span class="ticker-item">E-E-A-T Strategy</span>
+    <span class="ticker-item">Schema Markup</span>
+    <span class="ticker-item">Link Building</span>
+    <span class="ticker-item">SurferSEO</span>
+    <span class="ticker-item">Screaming Frog</span>
+    <span class="ticker-item">SEMrush</span>
+    <span class="ticker-item">Google Search Console</span>
+    <span class="ticker-item">Topical Authority</span>
+  </div>
+</div>
+
+<!-- ══ SERVICES ══ -->
+<section id="services">
+  <div class="svc-layout reveal">
+    <div class="svc-sticky">
+      <div class="sec-eyebrow">What I Offer</div>
+      <h2 class="sec-title">Full-Stack<br>SEO Services</h2>
+      <p class="sec-sub">Every engagement covers all pillars of SEO — no gaps, no shortcuts, no black-hat tactics.</p>
+    </div>
+    <div class="svc-list">
+      <div class="svc-item">
+        <div class="svc-num">01</div>
+        <div class="svc-name">Technical SEO</div>
+        <div class="svc-desc">Complete website crawl audits, Core Web Vitals optimization, site speed improvements, structured data implementation, and fixing every technical blocker hurting your rankings.</div>
+        <div class="svc-tags"><span class="svc-tag">Screaming Frog</span><span class="svc-tag">Core Web Vitals</span><span class="svc-tag">Schema Markup</span><span class="svc-tag">XML Sitemaps</span><span class="svc-tag">Robots.txt</span><span class="svc-tag">Cloudflare CDN</span></div>
+        <span class="svc-arrow">→</span>
+      </div>
+      <div class="svc-item">
+        <div class="svc-num">02</div>
+        <div class="svc-name">On-Page SEO &amp; Content</div>
+        <div class="svc-desc">Search intent-aligned optimization for every page — TF*IDF analysis, meta tag optimization, internal linking architecture, and E-E-A-T signals that Google rewards.</div>
+        <div class="svc-tags"><span class="svc-tag">SurferSEO</span><span class="svc-tag">TF*IDF</span><span class="svc-tag">E-E-A-T</span><span class="svc-tag">Meta Optimization</span><span class="svc-tag">Internal Linking</span></div>
+        <span class="svc-arrow">→</span>
+      </div>
+      <div class="svc-item">
+        <div class="svc-num">03</div>
+        <div class="svc-name">Link Building</div>
+        <div class="svc-desc">White-hat backlink acquisition through guest posting and contextual link building on DA 40–80 websites. Quality over quantity — every link serves a purpose.</div>
+        <div class="svc-tags"><span class="svc-tag">Guest Posting</span><span class="svc-tag">Contextual Links</span><span class="svc-tag">DA 40–80</span><span class="svc-tag">Competitor Gaps</span></div>
+        <span class="svc-arrow">→</span>
+      </div>
+      <div class="svc-item">
+        <div class="svc-num">04</div>
+        <div class="svc-name">E-Commerce SEO</div>
+        <div class="svc-desc">Platform-specific SEO for Shopify, WooCommerce, and Magento — category page optimization, product schema, faceted navigation, and conversion-focused improvements.</div>
+        <div class="svc-tags"><span class="svc-tag">Shopify</span><span class="svc-tag">Magento</span><span class="svc-tag">Product Schema</span><span class="svc-tag">Category SEO</span></div>
+        <span class="svc-arrow">→</span>
+      </div>
+      <div class="svc-item">
+        <div class="svc-num">05</div>
+        <div class="svc-name">SEO Audits &amp; Reporting</div>
+        <div class="svc-desc">Detailed audits with clear priority action plans. Monthly rank tracking reports, GSC analysis, and transparent communication — you always know exactly what's happening.</div>
+        <div class="svc-tags"><span class="svc-tag">GSC Analysis</span><span class="svc-tag">GA4</span><span class="svc-tag">Rank Tracking</span><span class="svc-tag">Monthly Reports</span></div>
+        <span class="svc-arrow">→</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RESULTS ══ -->
+<section id="results" class="alt" style="padding-left:0;padding-right:0;padding-top:80px;padding-bottom:0">
+  <div style="padding:0 72px 60px">
+    <div class="sec-eyebrow reveal">Impact Numbers</div>
+    <h2 class="sec-title reveal">Results Delivered</h2>
+    <p class="sec-sub reveal">Numbers across client projects — every metric is from actual work done.</p>
+  </div>
+  <div class="results-grid reveal">
+    <div class="res-card"><span class="res-num">↑68%</span><span class="res-label">Average Traffic Growth</span><span class="res-sub">Across all client projects</span></div>
+    <div class="res-card"><span class="res-num">3.2×</span><span class="res-label">Page 1 Keywords Growth</span><span class="res-sub">From position 20–50 to Top 10</span></div>
+    <div class="res-card"><span class="res-num">92</span><span class="res-label">Best Page Speed Score</span><span class="res-sub">Core Web Vitals — All Green</span></div>
+    <div class="res-card"><span class="res-num">55+</span><span class="res-label">High-DA Backlinks Built</span><span class="res-sub">DA 40–80 niche-relevant sites</span></div>
+  </div>
+</section>
+
+<!-- ══ CASE STUDIES ══ -->
+<section id="cases" style="padding:0">
+  <div style="padding:80px 72px 40px">
+    <div class="sec-eyebrow reveal">Portfolio</div>
+    <h2 class="sec-title reveal">Case Studies</h2>
+    <p class="sec-sub reveal">Three real projects — problem, strategy, and outcome.</p>
+  </div>
+  <div class="cases">
+
+    <!-- CASE 1 -->
+    <div class="case reveal">
+      <div class="case-left">
+        <div class="case-tag">⬡ Roofing &amp; Construction · Local SEO · WordPress</div>
+        <div class="case-title">Local Roofing Company — From Invisible to Market Leader</div>
+        <div class="case-challenge">A roofing company in a competitive US city was ranking on page 4–5 for their primary service keywords. Zero local pack presence despite 8 years in business. The website had duplicate meta tags, no schema, and a 38/100 page speed score.</div>
+        <div class="case-approach-title">Strategy &amp; Execution</div>
+        <ul class="case-steps">
+          <li class="case-step">Full technical audit — fixed 140+ crawl errors, duplicate content, and redirect chains via Screaming Frog</li>
+          <li class="case-step">LocalBusiness + Service schema implementation with geo-targeted markup across all service area pages</li>
+          <li class="case-step">SurferSEO content rewrite for 12 service pages using TF*IDF analysis — aligned each page to search intent</li>
+          <li class="case-step">Page speed optimization: image compression, Cloudflare CDN, CSS/JS minification → 38 to 91 score</li>
+          <li class="case-step">E-E-A-T improvements — added author bios, certifications, project photo galleries, review schema</li>
+          <li class="case-step">8 high-DA (45–65) guest post backlinks from construction and home improvement niche sites</li>
+        </ul>
+      </div>
+      <div class="case-right">
+        <div class="case-metrics-grid">
+          <div class="cm"><span class="cm-val cm-val-green">↑82%</span><span class="cm-key">Organic Traffic</span></div>
+          <div class="cm"><span class="cm-val">#3</span><span class="cm-key">Local Pack Rank</span></div>
+          <div class="cm"><span class="cm-val">38→91</span><span class="cm-key">Page Speed Score</span></div>
+          <div class="cm"><span class="cm-val">5 mo</span><span class="cm-key">Timeline</span></div>
+        </div>
+        <div class="case-tools-wrap">
+          <div class="case-tools-label">Tools Used</div>
+          <div class="case-tools"><span class="ctool">Screaming Frog</span><span class="ctool">SurferSEO</span><span class="ctool">GSC</span><span class="ctool">Cloudflare</span><span class="ctool">Yoast SEO</span><span class="ctool">SEMrush</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE 2 — DARK -->
+    <div class="case dark reveal">
+      <div class="case-left">
+        <div class="case-tag case-tag-dark">⬡ E-Commerce · Shopify · Apparel</div>
+        <div class="case-title case-title-dark">UK Apparel Shopify Store — Zero to 4,200 Monthly Visitors</div>
+        <div class="case-challenge case-challenge-dark">Brand new Shopify store with zero domain history, no backlinks, and 0 organic sessions. Operating in a competitive UK fashion niche. Needed organic traffic before paid budget ran out in 6 months.</div>
+        <div class="case-approach-title case-approach-title-dark">Strategy &amp; Execution</div>
+        <ul class="case-steps">
+          <li class="case-step case-step-dark">SEMrush keyword gap analysis — found 40+ low-competition buyer-intent keywords competitors missed</li>
+          <li class="case-step case-step-dark">Shopify technical SEO: canonical tags, collection page optimization, duplicate variant URL fixing</li>
+          <li class="case-step case-step-dark">SurferSEO-optimized content for 8 category pages and 22 product pages (TF*IDF + LSI keywords)</li>
+          <li class="case-step case-step-dark">Product + BreadcrumbList + Organization schema for rich snippets in Google Shopping results</li>
+          <li class="case-step case-step-dark">18 contextual guest post links from UK fashion blogs and lifestyle magazines (DA 42–70)</li>
+          <li class="case-step case-step-dark">Hreflang implementation to separate UK/US content and avoid geo-targeting confusion</li>
+        </ul>
+      </div>
+      <div class="case-right">
+        <div class="case-metrics-grid">
+          <div class="cm cm-dark"><span class="cm-val cm-val-green">4,200</span><span class="cm-key cm-key-dark">Monthly Visitors</span></div>
+          <div class="cm cm-dark"><span class="cm-val" style="color:var(--gold-light)">18</span><span class="cm-key cm-key-dark">Backlinks Built</span></div>
+          <div class="cm cm-dark"><span class="cm-val cm-val-green">↑340%</span><span class="cm-key cm-key-dark">Impressions (GSC)</span></div>
+          <div class="cm cm-dark"><span class="cm-val" style="color:var(--gold-light)">6 mo</span><span class="cm-key cm-key-dark">Timeline</span></div>
+        </div>
+        <div class="case-tools-wrap case-tools-wrap-dark">
+          <div class="case-tools-label" style="color:rgba(247,245,240,0.3)">Tools Used</div>
+          <div class="case-tools"><span class="ctool ctool-dark">SEMrush</span><span class="ctool ctool-dark">SurferSEO</span><span class="ctool ctool-dark">Shopify</span><span class="ctool ctool-dark">GSC</span><span class="ctool ctool-dark">Moz Pro</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE 3 -->
+    <div class="case reveal">
+      <div class="case-left">
+        <div class="case-tag">⬡ SaaS · B2B · Technical SEO Overhaul</div>
+        <div class="case-title">B2B SaaS Platform — Recovering from 6-Month Traffic Decline</div>
+        <div class="case-challenge">A project management SaaS had been losing organic traffic for 6 months post a website migration gone wrong. 200+ crawl errors, broken canonical structure, and Core Web Vitals failing — 3 out of 3 metrics in the red.</div>
+        <div class="case-approach-title">Strategy &amp; Execution</div>
+        <ul class="case-steps">
+          <li class="case-step">Emergency crawl audit via Screaming Frog — identified 214 errors across broken links, redirect loops, orphan pages</li>
+          <li class="case-step">Rebuilt XML sitemap and Robots.txt from scratch — proper crawl budget allocation for 800+ page site</li>
+          <li class="case-step">Canonical tag overhaul — eliminated 60+ duplicate page signals causing keyword cannibalization</li>
+          <li class="case-step">Core Web Vitals: LCP from 5.4s → 1.9s via Cloudflare, lazy loading, and server-side caching</li>
+          <li class="case-step">FAQ + HowTo + SoftwareApplication schema — won 4 featured snippets within 3 months</li>
+          <li class="case-step">Internal linking restructure using topic cluster model — 40% improvement in crawl depth metrics</li>
+        </ul>
+      </div>
+      <div class="case-right">
+        <div class="case-metrics-grid">
+          <div class="cm"><span class="cm-val cm-val-green">↑74%</span><span class="cm-key">Traffic Recovery</span></div>
+          <div class="cm"><span class="cm-val">214→0</span><span class="cm-key">Crawl Errors Fixed</span></div>
+          <div class="cm"><span class="cm-val">4</span><span class="cm-key">Featured Snippets</span></div>
+          <div class="cm"><span class="cm-val">4 mo</span><span class="cm-key">Timeline</span></div>
+        </div>
+        <div class="case-tools-wrap">
+          <div class="case-tools-label">Tools Used</div>
+          <div class="case-tools"><span class="ctool">Screaming Frog</span><span class="ctool">GSC</span><span class="ctool">Cloudflare</span><span class="ctool">SEMrush</span><span class="ctool">PageSpeed Insights</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ KEYWORD RANKINGS ══ -->
+<div class="rank-section reveal" id="rankings">
+  <div class="sec-eyebrow" style="color:var(--gold)"><span style="background:var(--gold);height:1px;width:30px;display:inline-block"></span> Keyword Rankings</div>
+  <div class="rank-title">Real Keywords.<br>Real Positions.</div>
+  <div class="rank-sub">A sample of keywords moved to Page 1 across client projects</div>
+  <table class="rank-table">
+    <thead>
+      <tr>
+        <th>Keyword</th>
+        <th>Niche</th>
+        <th>Before</th>
+        <th>After</th>
+        <th>Improvement</th>
+        <th style="text-align:right">Timeframe</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="rank-kw">roofing contractor [city]</td><td><span class="rank-niche">Local Services</span></td><td class="rank-before">#52</td><td class="rank-after">#3</td><td class="rank-change">+49 positions</td><td class="rank-time">4 months</td></tr>
+      <tr><td class="rank-kw">emergency roof repair [city]</td><td><span class="rank-niche">Local Services</span></td><td class="rank-before">#41</td><td class="rank-before" style="text-decoration:none">#8</td><td class="rank-change" style="color:var(--gold-light)">+33 positions</td><td class="rank-time">3 months</td></tr>
+      <tr><td class="rank-kw">women's linen dress UK</td><td><span class="rank-niche">E-Commerce</span></td><td class="rank-before">#0</td><td class="rank-after">#6</td><td class="rank-change">Page 1 from scratch</td><td class="rank-time">5 months</td></tr>
+      <tr><td class="rank-kw">sustainable summer dresses</td><td><span class="rank-niche">E-Commerce</span></td><td class="rank-before">#0</td><td class="rank-after">#4</td><td class="rank-change">Page 1 from scratch</td><td class="rank-time">6 months</td></tr>
+      <tr><td class="rank-kw">project management tool for teams</td><td><span class="rank-niche">SaaS</span></td><td class="rank-before">#38</td><td class="rank-after">#9</td><td class="rank-change">+29 positions</td><td class="rank-time">4 months</td></tr>
+      <tr><td class="rank-kw">task tracking software small business</td><td><span class="rank-niche">SaaS</span></td><td class="rank-before">#55</td><td class="rank-after">#7</td><td class="rank-change">+48 positions</td><td class="rank-time">5 months</td></tr>
+      <tr><td class="rank-kw">best roof replacement cost</td><td><span class="rank-niche">Local Services</span></td><td class="rank-before">#33</td><td class="rank-after">#5</td><td class="rank-change">+28 positions</td><td class="rank-time">3 months</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══ PROCESS ══ -->
+<section class="alt">
+  <div class="sec-eyebrow reveal">How I Work</div>
+  <h2 class="sec-title reveal">My SEO Process</h2>
+  <p class="sec-sub reveal">Systematic, transparent — you see every step and understand every decision.</p>
+  <div class="process-grid reveal">
+    <div class="proc"><div class="proc-circle"><span class="proc-n">01</span></div><div class="proc-name">Discovery</div><div class="proc-desc">Business goals, target audience, current rankings, and competitor landscape analysis</div></div>
+    <div class="proc"><div class="proc-circle"><span class="proc-n">02</span></div><div class="proc-name">Audit</div><div class="proc-desc">Technical, on-page, and backlink audit using Screaming Frog, GSC, and SEMrush</div></div>
+    <div class="proc"><div class="proc-circle"><span class="proc-n">03</span></div><div class="proc-name">Strategy</div><div class="proc-desc">Custom roadmap with prioritized actions, keyword targets, and content plan</div></div>
+    <div class="proc"><div class="proc-circle"><span class="proc-n">04</span></div><div class="proc-name">Execute</div><div class="proc-desc">Technical fixes, on-page optimization, content, and link building campaigns</div></div>
+    <div class="proc"><div class="proc-circle"><span class="proc-n">05</span></div><div class="proc-name">Report</div><div class="proc-desc">Monthly reports — rankings, traffic, GSC data, and next month's plan</div></div>
+  </div>
+</section>
+
+<!-- ══ TOOLS ══ -->
+<section>
+  <div class="sec-eyebrow reveal">Tech Stack</div>
+  <h2 class="sec-title reveal">Tools I Use Daily</h2>
+  <p class="sec-sub reveal">9 industry-standard tools — I know not just what they show, but what to do with the data.</p>
+  <div class="tools-grid reveal">
+    <div class="tool-card"><span class="tool-emoji">🔍</span><div class="tool-name">Google Search Console</div><div class="tool-use">Performance analysis, indexing issues, GSC error troubleshooting, CTR optimization</div><div class="tool-bar-wrap"><div class="tool-bar-fill" style="width:94%"></div></div><div class="tool-pct">Expert Level — Daily Use</div></div>
+    <div class="tool-card"><span class="tool-emoji">📈</span><div class="tool-name">SEMrush</div><div class="tool-use">Keyword research, competitor gap analysis, backlink auditing, rank tracking</div><div class="tool-bar-wrap"><div class="tool-bar-fill" style="width:87%"></div></div><div class="tool-pct">Advanced — Daily Use</div></div>
+    <div class="tool-card"><span class="tool-emoji">🐸</span><div class="tool-name">Screaming Frog</div><div class="tool-use">Full site crawl audits, broken link detection, redirect mapping, crawl budget analysis</div><div class="tool-bar-wrap"><div class="tool-bar-fill" style="width:90%"></div></div><div class="tool-pct">Advanced — Weekly Use</div></div>
+    <div class="tool-card"><span class="tool-emoji">🌊</span><div class="tool-name">SurferSEO</div><div class="tool-use">Content optimization, TF*IDF analysis, SERP gap identification, NLP optimization</div><div class="tool-bar-wrap"><div class="tool-bar-fill" style="width:84%"></div></div><div class="tool-pct">Advanced — Per-Project Use</div></div>
+    <div class="tool-card"><span class="tool-emoji">📊</span><div class="tool-name">Google Analytics 4</div><div class="tool-use">Traffic analysis, user behavior, conversion tracking, organic channel reporting</div><div class="tool-bar-wrap"><div class="tool-bar-fill" style="width:80%"></div></div><div class="tool-pct">Proficient — Weekly Use</div></div>
+    <div class="tool-card"><span class="tool-emoji">🔵</span><div class="tool-name">Moz Pro</div><div class="tool-use">DA/PA analysis, backlink profile review, domain comparison, link building research</div><div class="tool-bar-wrap"><div class="tool-bar-fill" style="width:78%"></div></div><div class="tool-pct">Proficient — Weekly Use</div></div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section class="alt">
+  <div class="sec-eyebrow reveal">Feedback</div>
+  <h2 class="sec-title reveal">What People Say</h2>
+  <div class="testi-grid reveal">
+    <div class="testi-card">
+      <span class="tq">"</span>
+      <div class="ttext">Muzafar identified technical issues we had overlooked for months. His systematic approach to the audit and the speed at which he resolved critical errors was genuinely impressive. Traffic started recovering within 6 weeks.</div>
+      <div class="tperson"><div class="tavatar">DT</div><div><div class="tname">SEO Manager</div><div class="trole">Diligent Technologies, Islamabad</div></div></div>
+    </div>
+    <div class="testi-card">
+      <span class="tq">"</span>
+      <div class="ttext">His keyword research and SurferSEO content optimization gave us results we had not seen in two years. Three category pages went to Page 1 within 4 months. He clearly understands how Google evaluates content.</div>
+      <div class="tperson"><div class="tavatar">UK</div><div><div class="tname">Store Owner</div><div class="trole">UK E-Commerce Brand</div></div></div>
+    </div>
+    <div class="testi-card">
+      <span class="tq">"</span>
+      <div class="ttext">What stands out about Muzafar is his ability to explain the why behind every decision. He does not just execute tasks — he thinks strategically. Our domain authority increased by 12 points in 5 months under his guidance.</div>
+      <div class="tperson"><div class="tavatar">SE</div><div><div class="tname">Team Lead</div><div class="trole">Search Engine Empires</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact">
+  <div class="sec-eyebrow reveal">Work With Me</div>
+  <h2 class="sec-title reveal">Let's Grow<br>Your Rankings.</h2>
+  <div class="contact-layout reveal">
+    <div class="contact-left">
+      <h3>Ready for real organic growth?</h3>
+      <p>I take on a limited number of clients each month to ensure every project gets full attention. If you need an SEO specialist who delivers measurable results — let's talk.</p>
+      <div class="c-item"><div class="c-icon">✉</div><div><div class="c-lbl">Email</div><div class="c-val">hafizmuzafar247@gmail.com</div></div></div>
+      <div class="c-item"><div class="c-icon">📞</div><div><div class="c-lbl">Phone / WhatsApp</div><div class="c-val">0347-7192378</div></div></div>
+      <div class="c-item"><div class="c-icon">📍</div><div><div class="c-lbl">Location</div><div class="c-val">Gulberg Green, Islamabad, Pakistan</div></div></div>
+      <div class="avail-badge"><span class="avail-dot"></span>Currently Available — Onsite &amp; Remote</div>
+    </div>
+    <div class="cform">
+      <div class="frow">
+        <div class="fg"><label class="flbl">Name</label><input class="fi" type="text" placeholder="Your name"></div>
+        <div class="fg"><label class="flbl">Email</label><input class="fi" type="email" placeholder="your@email.com"></div>
+      </div>
+      <div class="fg"><label class="flbl">Website</label><input class="fi" type="text" placeholder="https://yoursite.com"></div>
+      <div class="fg"><label class="flbl">What do you need?</label>
+        <select class="fi"><option>Technical SEO Audit</option><option>Full SEO Campaign</option><option>On-Page Optimization</option><option>Link Building</option><option>E-Commerce SEO</option><option>Other</option></select>
+      </div>
+      <div class="fg"><label class="flbl">Message</label><textarea class="fi" placeholder="Tell me about your website, current rankings situation, and goals..."></textarea></div>
+      <button class="fsub" onclick="this.textContent='Message Sent ✓';this.style.background='var(--teal)'">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="flogo">MH<span>.</span></div>
+  <div class="fcopy">© 2025 Muzafar Hussain — SEO Specialist, Islamabad</div>
+  <div class="flinks">
+    <a href="mailto:hafizmuzafar247@gmail.com">Email</a>
+    <a href="#cases">Work</a>
+    <a href="#contact">Hire Me</a>
+  </div>
+</footer>
+
+<script>
+const cur=document.getElementById('cur');
+const ring=document.getElementById('curRing');
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
+  setTimeout(()=>{ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px'},60);
+});
+
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
